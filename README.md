@@ -149,13 +149,13 @@ banco_de_preguntas = [
 ```
 </details>
 
-## 🛠️ Tecnologías utilizadas
+# 🛠️ Tecnologías utilizadas
 
 - **Python 3.12** 🐍
 - **CustomTkinter** 🎨
 - **PyInstaller** 📦
 - **JSON & AppData Integration** 🛡️
 
-## ⚖️ Licencia
+# ⚖️ Licencia
 
 Este proyecto está bajo la **Licencia GPL-3.0**.
