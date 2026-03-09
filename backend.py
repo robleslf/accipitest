@@ -10,22 +10,18 @@ class DataManager:
         self.current_user = None
 
         if getattr(sys, 'frozen', False):
-            self.base_path = os.path.dirname(sys.executable)
+            self.base_path = sys._MEIPASS
+            app_name = "AccipiTest" # Nombre oficial
+            self.app_data_dir = os.path.join(os.environ.get('APPDATA', os.path.expanduser('~')), app_name)
         else:
             self.base_path = os.path.dirname(os.path.abspath(__file__))
+            self.app_data_dir = self.base_path
 
-        app_name = "EntrenadorPro"
-        self.app_data_dir = os.path.join(os.environ.get('APPDATA', os.path.expanduser('~')), app_name)
         self.users_dir = os.path.join(self.app_data_dir, 'users')
-
-        # --- RUTA DE PREGUNTAS (Lectura) ---
         self.preguntas_dir = os.path.join(self.base_path, 'preguntas')
 
-        # Crear carpetas si no existen
         os.makedirs(self.users_dir, exist_ok=True)
-        if not os.path.exists(self.preguntas_dir):
-            os.makedirs(self.preguntas_dir, exist_ok=True)
-
+        
         if self.preguntas_dir not in sys.path:
             sys.path.append(self.preguntas_dir)
 
@@ -56,7 +52,7 @@ class DataManager:
             try:
                 with open(self.fails_file, 'r', encoding='utf-8') as f:
                     return json.load(f)
-            except: return []
+            except: pass
         return []
 
     def save_failures(self, failures):
@@ -82,19 +78,17 @@ class DataManager:
     def get_available_packs(self):
         packs = []
         if not os.path.exists(self.preguntas_dir): return []
-        
         for f in os.listdir(self.preguntas_dir):
             if f.endswith('.py') and not f.startswith('__'):
                 module_name = f[:-3]
                 try:
-                    # Importación dinámica para leer la variable 'titulo'
-                    spec = importlib.util.spec_from_file_location(module_name, os.path.join(self.preguntas_dir, f))
+                    path_completo = os.path.join(self.preguntas_dir, f)
+                    spec = importlib.util.spec_from_file_location(module_name, path_completo)
                     module = importlib.util.module_from_spec(spec)
                     spec.loader.exec_module(module)
                     titulo = getattr(module, "titulo", module_name)
                     packs.append({"id": module_name, "titulo": titulo})
-                except Exception as e:
-                    print(f"Error al identificar pack {f}: {e}")
+                except: pass
         return sorted(packs, key=lambda x: x['titulo'])
 
     def sync_packs(self):
@@ -113,9 +107,7 @@ class DataManager:
             else:
                 module = importlib.import_module(pack_id)
             return module.banco_de_preguntas
-        except Exception as e:
-            print(f"Error cargando preguntas de {pack_id}: {e}")
-            return []
+        except: return []
 
     def get_study_recommendation(self):
         state = self.load_state()
@@ -141,6 +133,5 @@ class DataManager:
 
     def delete_suspended_test(self):
         if os.path.exists(self.suspended_file):
-            try:
-                os.remove(self.suspended_file)
+            try: os.remove(self.suspended_file)
             except: pass
