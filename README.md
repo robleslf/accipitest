@@ -158,4 +158,4 @@ banco_de_preguntas = [
 
 ## ⚖️ Licencia
 
-Este proyecto está bajo la **Licencia MIT**.
+Este proyecto está bajo la **Licencia GPL-3.0**.
