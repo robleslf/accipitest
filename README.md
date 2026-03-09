@@ -49,6 +49,8 @@ En Linux, el programa se ejecuta directamente desde el código fuente:
     python3 iniciar.py
     ```
 
+---
+
 # 🎯 Modos
 
 ## 📖 Modo Estudio
@@ -64,6 +66,8 @@ Permite configurar un test al gusto, seleccionando múltiples temas a la vez y e
 - **Perfiles:** Permite crear diferentes usuarios con progresos independientes.  
 - **Guardado:** Puedes pausar cualquier test y retomarlo en otro momento.  
 - **Persistencia:** En Windows, los datos se almacenan en `%APPDATA%/AccipiTest`, por lo que puedes mover la carpeta del programa sin perder tu progreso.
+
+---
 
 # ✨ Cómo añadir preguntas nuevas ✍️
 
@@ -149,12 +153,16 @@ banco_de_preguntas = [
 ```
 </details>
 
+---
+
 # 🛠️ Tecnologías utilizadas
 
 - **Python 3.12** 🐍
 - **CustomTkinter** 🎨
 - **PyInstaller** 📦
 - **JSON & AppData Integration** 🛡️
+
+---
 
 # ⚖️ Licencia
 
