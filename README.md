@@ -18,7 +18,7 @@ AccipiTest es un programa portable escrito en Python diseñado para proveer al u
 Tienes dos formas de utilizar AccipiTest en Windows:
 
 **1. Versión Portable (Recomendado):**
-* Ve a la sección de [**Releases**](https://github.com/tu-usuario/AccipiTest/releases).
+* Ve a la sección de [**Releases**](https://github.com/ROBLESLF/accipitest/releases).
 * Descarga el archivo `AccipiTest.zip`.
 * Descomprime y ejecuta `AccipiTest.exe`. No requiere instalación.
 
