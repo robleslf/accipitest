@@ -49,7 +49,7 @@ En Linux, el programa se ejecuta directamente desde el código fuente:
     python3 iniciar.py
     ```
 
-# 🎯 Modos de Juego
+# 🎯 Modos
 
 ## 📖 Modo Estudio
 Sistema guiado de aprendizaje.  
@@ -74,30 +74,77 @@ Basta con crear un archivo `.py` dentro de la carpeta `preguntas/`. El programa 
 
 ```python
 # -*- coding: utf-8 -*-
-titulo = "Mi Nuevo Examen"
 
+# =============================================================================
+# TÍTULO DEL PACK
+# Nombre que aparecerá en el menú de AccipiTest
+# =============================================================================
+titulo = "Mi Nuevo Examen Personalizado"
+
+# =============================================================================
+# BANCO DE PREGUNTAS
+# Soporta 3 tipos: única, múltiple y rellenar.
+# =============================================================================
 banco_de_preguntas = [
+    
+    # --- TIPO 1: SELECCIÓN ÚNICA ---
     {
-        "pregunta": "¿Ejemplo de pregunta única?",
-        "opciones": {"A": "Sí", "B": "No"},
+        "pregunta": "¿Cuál es la función principal del comando 'mdadm'?",
+        "opciones": {
+            "A": "Configurar la red inalámbrica.",
+            "B": "Gestionar dispositivos RAID por software.",
+            "C": "Formatear particiones en formato NTFS.",
+            "D": "Monitorizar la temperatura de la CPU."
+        },
         "tipo": "única",
-        "respuesta_correcta": "A",
-        "explicacion": {"general": "Info...", "opciones": {"A": "Bien", "B": "Mal"}}
+        "respuesta_correcta": "B", 
+        "explicacion": {
+            "general": "mdadm (Multiple Device Admin) es la herramienta estándar para RAID en Linux.",
+            "opciones": {
+                "A": "Incorrecto. Se usa nmcli o iw para redes.",
+                "B": "¡Correcto! Permite crear, gestionar y monitorizar arrays RAID.",
+                "C": "Incorrecto. Se usaría mkfs.ntfs.",
+                "D": "Incorrecto. Para eso se usa lm-sensors."
+            }
+        }
     },
+
+    # --- TIPO 2: SELECCIÓN MÚLTIPLE ---
+    # El usuario debe marcar todas las correctas para acertar.
     {
-        "pregunta": "¿Gigantes gaseosos? (Selecciona dos)",
-        "opciones": {"A": "Júpiter", "B": "Marte", "C": "Saturno", "D": "Tierra"},
+        "pregunta": "¿Qué protocolos utiliza keepalived para gestionar alta disponibilidad? (Selecciona DOS)",
+        "opciones": {
+            "A": "VRRP",
+            "B": "HTTP",
+            "C": "LVS (IPVS)",
+            "D": "FTP"
+        },
         "tipo": "múltiple",
-        "respuesta_correcta": "AC",
-        "explicacion": {"general": "Info...", "opciones": {}}
+        "respuesta_correcta": "AC", # Letras juntas en orden alfabético
+        "explicacion": {
+            "general": "Keepalived combina VRRP para redundancia y LVS para balanceo de carga.",
+            "opciones": {
+                "A": "Correcto. Virtual Router Redundancy Protocol.",
+                "B": "Incorrecto. Es un protocolo de aplicación.",
+                "C": "Correcto. Linux Virtual Server integrado en el kernel.",
+                "D": "Incorrecto. Es para transferencia de archivos."
+            }
+        }
     },
+
+    # --- TIPO 3: RELLENAR ---
+    # El usuario escribe la respuesta. No distingue entre mayúsculas y minúsculas.
     {
-        "pregunta": "Escribe la capital de España:",
-        "opciones": {},
+        "pregunta": "¿Cómo se llama el mecanismo para aislar nodos fallidos en un cluster (Fencing)?",
+        "opciones": {}, # Vacío
         "tipo": "rellenar",
-        "respuesta_correcta": ["Madrid"],
-        "explicacion": {"general": "Info...", "opciones": {}}
+        "respuesta_correcta": ["STONITH", "stonith admin"], # Lista de respuestas aceptadas
+        "explicacion": {
+            "general": "STONITH significa 'Shoot The Other Node In The Head'.",
+            "opciones": {} # Vacío
+        }
     }
+
 ]
 ```
 </details>
