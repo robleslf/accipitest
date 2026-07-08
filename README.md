@@ -49,6 +49,24 @@ En Linux, el programa se ejecuta directamente desde el código fuente:
     ```
 Nota: El script se encarga automáticamente de crear el entorno virtual (venv), instalar las dependencias necesarias y lanzar la aplicación. En lanzamientos sucesivos, simplemente ejecutará el programa directamente.
 
+Opción B
+
+Descargar la versión portable de la sección releases, todo está ya listo, es solo lanzar el ejecutable.
+
+
+NOTA: Para generar el ejecutable:
+
+2. **Dar permisos de ejecución al script de generación del ejecutable:**
+   ```bash
+    chmod +x generar_linux.sh
+
+    ```
+
+3. **Ejecutar el generador del ejecutable:**
+   ```bash
+    ./generar_linux.sh
+    ```
+
 ---
 
 # 🎯 Modos
