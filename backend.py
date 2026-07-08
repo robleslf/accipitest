@@ -9,10 +9,13 @@ class DataManager:
     def __init__(self):
         self.current_user = None
 
-        if getattr(sys, 'frozen', False):
+        if getattr(sys, 'frozen', False):            
             self.base_path = sys._MEIPASS
-            app_name = "AccipiTest" # Nombre oficial
-            self.app_data_dir = os.path.join(os.environ.get('APPDATA', os.path.expanduser('~')), app_name)
+            app_name = "AccipiTest"
+            if os.name == 'nt': # Windows
+                self.app_data_dir = os.path.join(os.environ.get('APPDATA'), app_name)
+            else: # Linux / Mac
+                self.app_data_dir = os.path.expanduser(f"~/.local/share/{app_name}")
         else:
             self.base_path = os.path.dirname(os.path.abspath(__file__))
             self.app_data_dir = self.base_path
