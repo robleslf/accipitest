@@ -30,7 +30,9 @@ Tienes dos formas de utilizar AccipiTest en Windows:
 ---
 
 ### 🐧 Uso en Linux
-En Linux, el programa se ejecuta directamente desde el código fuente:
+En Linux, el programa se puede ejecutar directamente desde el código fuente o puedes descargar directamente la versión portable (RECOMENDADO):
+
+#### Opción A: Código fuente
 
 1. **Clonar el repositorio:**
    ```bash
@@ -49,7 +51,7 @@ En Linux, el programa se ejecuta directamente desde el código fuente:
     ```
 Nota: El script se encarga automáticamente de crear el entorno virtual (venv), instalar las dependencias necesarias y lanzar la aplicación. En lanzamientos sucesivos, simplemente ejecutará el programa directamente.
 
-Opción B
+#### Opción B: Versión portable
 
 Descargar la versión portable de la sección releases, todo está ya listo, es solo lanzar el ejecutable.
 
