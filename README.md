@@ -58,13 +58,13 @@ Descargar la versión portable de la sección releases, todo está ya listo, es 
 
 NOTA: Para generar el ejecutable:
 
-2. **Dar permisos de ejecución al script de generación del ejecutable:**
+1. **Dar permisos de ejecución al script de generación del ejecutable:**
    ```bash
     chmod +x generar_linux.sh
 
     ```
 
-3. **Ejecutar el generador del ejecutable:**
+2. **Ejecutar el generador del ejecutable:**
    ```bash
     ./generar_linux.sh
     ```
