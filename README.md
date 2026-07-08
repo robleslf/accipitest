@@ -37,17 +37,17 @@ En Linux, el programa se ejecuta directamente desde el código fuente:
    git clone https://github.com/robleslf/AccipiTest.git
    cd AccipiTest
    ```
-2. **Crear entorno virtual y activar:**
+2. **Dar permisos de ejecución al script:**
    ```bash
     python3 -m venv venv
     source venv/bin/activate
     ```
 
-3. **Instalar dependencias y ejecutar:**
+3. **Ejecutar el programa:**
    ```bash
-    pip install -r requirements.txt
-    python3 iniciar.py
+    ./iniciar.sh
     ```
+Nota: El script se encarga automáticamente de crear el entorno virtual (venv), instalar las dependencias necesarias y lanzar la aplicación. En lanzamientos sucesivos, simplemente ejecutará el programa directamente.
 
 ---
 
