@@ -39,7 +39,8 @@ En Linux, el programa se ejecuta directamente desde el código fuente:
    ```
 2. **Dar permisos de ejecución al script:**
    ```bash
-    python3 -m venv venv
+    chmod +x iniciar.sh
+
     ```
 
 3. **Ejecutar el programa:**
